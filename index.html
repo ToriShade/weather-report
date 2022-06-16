@@ -14,9 +14,13 @@
     </header>
     <main>
         <section>
-            <!-- <div id = "star-wrap-open">✨ </div> -->
-            <span type = "text" id = "city-name"></span><!-- placeholder = "Seattle"-->
-            <!-- <div id = "star-wrap-close"> ✨</div> -->
+            <span type = "text" id = "city-name"></span>
+        </section>
+        <section class = "city">
+            <div id = "city-name-content-box"></div>
+            <h1 id = "city-name-content-box-header">City Name</h1>
+            <input type = "text" id = "city-name-input" placeholder = "Input City for Specific Weather Report">
+            <button type = "button" id = "city-name-reset-button">Reset</button>
         </section>
         <section class = "temperature">
             <div id = "temperature-content-box"></div>
@@ -32,11 +36,11 @@
             <div id = "sky-content-box"></div>
             <h1 id = "sky-content-box-header">Sky</h1>
             <select id = "sky-drop-down">
-                <option value="What's the Vibe?">--What's the Vibe?--</option>
-                <option value="sunny">Sunny</option>
-                <option value="cloudy">Cloudy</option>
-                <option value="rainy">Rainy</option>
-                <option value="snowy">Snowy</option>
+                <option id="drop-down-default" value="What's the Vibe?">--What's the Vibe?--</option>
+                <option id="drop-down-option-1" value="sunny">Sunny</option>
+                <option id="drop-down-option-2" value="cloudy">Cloudy</option>
+                <option id="drop-down-option-3" value="rainy">Rainy</option>
+                <option id="drop-down-option-4" value="snowy">Snowy</option>
             </select>
         </section>
         <aside class = "weather-garden">
@@ -45,20 +49,7 @@
             <p id = "weather-garden-containing-sky" placeholder = "🌧🌈⛈🌧💧🌧🌦⛈💧🌧🌧🌈🌧"></p>
             <div id = "weather-garden-containing-landscape"></div>
         </aside>
-        <section class = "city">
-            <div id = "city-name-content-box"></div>
-            <h1 id = "city-name-content-box-header">City Name</h1>
-            <input type = "text" id = "city-name-input" placeholder = "Input City for Specific Weather Report">
-            <!-- <button type = "button" id = "city-name-weather-details-button">Go</button> -->
-            <button type = "button" id = "city-name-reset-button">Reset</button>
-        </section>
-        <!-- <section>
-            <button id="addCrabButton">Add Crab</button>
-        </section>
-        <section id="crabContainer">
-        </section> -->
     </main>
-
     <footer>©2022 Tori Shade | Ada Developers Academy</footer>
 
     <script src="src/index.js"></script>

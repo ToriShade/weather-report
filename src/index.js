@@ -12,13 +12,13 @@ window.onload = () => {
     changeTemperatureAndLandscapeStyling();
 };
 
-
+//ALL GOOD
 const displayCurrentLocation = () => {
     const cityName = document.getElementById("city-name");
-    cityName.textContent = "✨ " + currentLocation.city + " ✨";
+    cityName.textContent = "✨ " +currentLocation.city+ " ✨";
 }
 
-
+//ALL GOOD
 const updateDisplayForGivenCity = () => {
     const cityNameInput = document.getElementById("city-name-input");
     cityNameInput.addEventListener("keyup", () => {
@@ -27,7 +27,7 @@ const updateDisplayForGivenCity = () => {
     });
 }
 
-
+//ALL GOOD
 const resetLocation = () => {
     const cityName = document.getElementById("city-name");
     if (cityName != "Seattle"); {
@@ -41,20 +41,19 @@ const resetLocation = () => {
     };
 }
 
-
+//ALL GOOD
 const increaseTemperature = () => {
     const temperature = document.getElementById("temperature");
     temperature.textContent = (parseInt(temperature.textContent) + 1);
     changeTemperatureAndLandscapeStyling();
 }
 
-
+//ALL GOOD
 const decreaseTemperature = () => {
     const temperature = document.getElementById("temperature");
     temperature.textContent = (parseInt(temperature.textContent) - 1);
     changeTemperatureAndLandscapeStyling();
 }
-
 
 const getCurrentLocationCoordinates = () => {
     axios
@@ -77,13 +76,14 @@ const getCurrentLocationCoordinates = () => {
 }
 
 
+// ALL GOOD
 const getCurrentForecast = () => {
     axios
         .get("http://127.0.0.1:5000/weather", {
             params: {
                 lat: currentLocation.latitude, 
                 lon: currentLocation.longitude,
-                units: "imperial"
+                units: "imperial",
             },
         })
     .then((response) => { 
@@ -97,7 +97,7 @@ const getCurrentForecast = () => {
     });
 }
 
-
+//ALL GOOD
 const changeTemperatureAndLandscapeStyling = () => {
     temperature = document.getElementById("temperature");
     landscape = document.getElementById("weather-garden-containing-landscape");
@@ -121,7 +121,7 @@ const changeTemperatureAndLandscapeStyling = () => {
     }
 }
 
-
+//ALL GOOD
 const setTheMood = () => {
     const skyIcons = document.getElementById("weather-garden-containing-sky");
     const choice = document.getElementById("sky-drop-down").value;
@@ -165,23 +165,22 @@ const registerEventHandlers = () => {
     getCurrentForecastButton.addEventListener("click", getCurrentLocationCoordinates);
 }
 
-
 if (document.readyState !== 'loading') {
-    resetLocation();
-    increaseTemperature();
-    decreaseTemperature();
     getCurrentLocationCoordinates();
     getCurrentForecast();
-    changeTemperatureAndLandscapeStyling();
     setTheMood();
+    changeTemperatureAndLandscapeStyling();
+    increaseTemperature();
+    decreaseTemperature();
+    resetLocation();
     registerEventHandlers();
 } else {
-    document.addEventListener('DOMContentLoaded', resetLocation);
-    document.addEventListener('DOMContentLoaded', increaseTemperature);
-    document.addEventListener('DOMContentLoaded', decreaseTemperature);
     document.addEventListener('DOMContentLoaded', getCurrentLocationCoordinates);
     document.addEventListener('DOMContentLoaded', getCurrentForecast);
-    document.addEventListener('DOMContentLoaded', changeTemperatureAndLandscapeStyling);
     document.addEventListener('DOMContentLoaded', setTheMood);
-    document.addEventListener("DOMContentLoaded", registerEventHandlers);
+    document.addEventListener('DOMContentLoaded', changeTemperatureAndLandscapeStyling);
+    document.addEventListener('DOMContentLoaded', increaseTemperature);
+    document.addEventListener('DOMContentLoaded', decreaseTemperature);
+    document.addEventListener('DOMContentLoaded', resetLocation);
+    document.addEventListener('DOMContentLoaded', registerEventHandlers);
 }
